@@ -37,7 +37,7 @@ long long maxSubarraySum(int arr[], int n)
 }
 
 
-//Optimal solution
+//Optimal solution(KADANE'S ALGO)
 T.C:-O(n)
   S.C:-O(1)
 #include <bits/stdc++.h> 
