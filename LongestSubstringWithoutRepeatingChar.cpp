@@ -61,7 +61,7 @@ int uniqueSubstrings(string input)
     int left=0;
     int right=0;
     int ans=0;
-    while(left<n && right<n){
+    while(right<n){
         //check if the right ele was already there in map
         if(mp.find(input[right])!=mp.end()){
             //move the left to the next index of where the right previously was
