@@ -42,3 +42,23 @@ vector<int> maximumMeetings(vector<int> &start, vector<int> &end) {
     }
     return res;
 }
+
+
+//Alternative approach using a vector instead of making a new object
+#include <bits/stdc++.h> 
+vector<int> maximumMeetings(vector<int> &start, vector<int> &end) {
+    vector<pair<int,pair<int,int>>>ans;
+    for(int i=0;i<start.size();i++){
+        ans.push_back({end[i],{i+1,start[i]}});
+    }
+    sort(ans.begin(),ans.end());
+    vector<int>res;
+    int endingTime=-1;
+    for(auto it:ans){
+        if(it.second.second>endingTime-1){
+            res.push_back(it.second.first);
+            endingTime=it.first+1;
+        }
+    }
+    return res;
+}
