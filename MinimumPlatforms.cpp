@@ -44,3 +44,20 @@ int calculateMinPatforms(int at[], int dt[], int n) {
 }
 
 //Optimal solution
+T.C:-O(n)
+S.C:-O(1)
+int calculateMinPatforms(int at[], int dt[], int n) {
+    int platforms[2361]={0};
+    int ans=1;
+    for(int i=0;i<n;i++){
+        //increasing platform at arrival time
+        ++platforms[at[i]];
+        //decreasing platform at departure time
+        --platforms[dt[i]+1];
+    }
+    for(int i=1;i<2361;i++){
+        platforms[i]=platforms[i]+platforms[i-1];
+        ans=max(ans,platforms[i]);
+    }
+    return ans;
+}
