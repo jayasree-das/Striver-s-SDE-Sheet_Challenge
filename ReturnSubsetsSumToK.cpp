@@ -10,10 +10,11 @@ vector<int>& ds){
         }
         return;
     }
-    
+    //take
     ds.push_back(arr[i]);
     solve(i+1,arr,k-arr[i],n,ans,ds);
     ds.pop_back();
+    //not take
     solve(i+1,arr,k,n,ans,ds);
 }
 
